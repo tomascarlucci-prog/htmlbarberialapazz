@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barbería La Paz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <img src="Lapazlogohtml.jpg" class="logo">
+  <h1>Barbería La Paz</h1>
+  <p>Estilo, precisión y confianza</p>
+  <a href="#turnos" class="btn">Reservar turno</a>
+</header>
+
+<nav class="nav">
+  <a href="#inicio">Inicio</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#galeria">Galería</a>
+  <a href="#turnos">Turnos</a>
+</nav>
+
+<section id="inicio" class="fade-in">
+  <h2>Bienvenido</h2>
+  <p>Cortes modernos, clásicos y personalizados.</p>
+</section>
+
+<section id="servicios" class="fade-in">
+  <h2>Servicios</h2>
+  <div class="cards">
+    <div class="card">Corte <span>$14.000</span></div>
+    <div class="card">Corte semanal <span>$10.000</span></div>
+    <div class="card">Corte + barba <span>$15.000</span></div>
+    <div class="card">Barba <span>$6.000</span></div>
+    <div class="card">Reflejos <span>$35.000</span></div>
+    <div class="card">Global <span>$45.000</span></div>
+  </div>
+</section>
+
+<section id="galeria" class="fade-in">
+  <h2>Galería</h2>
+  <div class="slider">
+    <img src="cortedibujo.jpg" class="slide active">
+    <img src="corteenv.jpg" class="slide">
+    <img src="corteporlamitad.jpg" class="slide">
+    <img src="degradesanti.jpg" class="slide">
+    <img src="dregadenano.jpg" class="slide">
+
+    <button class="prev">⬅</button>
+    <button class="next">➡</button>
+  </div>
+</section>
+
+<section id="turnos" class="fade-in">
+  <h2>Reservar turno</h2>
+
+  <form id="turnoForm">
+    <input type="text" id="nombre" placeholder="Nombre" required>
+    <input type="date" id="fecha" required>
+
+    <select id="servicio">
+      <option>Corte</option>
+      <option>Corte + barba</option>
+      <option>Barba</option>
+    </select>
+
+    <button type="submit" class="btn">Reservar</button>
+  </form>
+
+  <p id="mensaje"></p>
+</section>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/5491158662972?text=Hola%20quisiera%20reservar%20un%20turno"
+   class="whatsapp"
+   target="_blank">💬</a>
+
+<!-- Instagram -->
+<a href="https://www.instagram.com/barberia_lapaz/"
+   class="instagram"
+   target="_blank">📸</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>
