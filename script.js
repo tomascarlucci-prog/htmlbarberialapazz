@@ -1,83 +1,64 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // =========================
-  // ANIMACIONES (PRO)
-  // =========================
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
       }
     });
-  }, { threshold: 0.2 });
+  });
 
   document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
 
-
-  // =========================
-  // SLIDER PRO
-  // =========================
+  // SLIDER
   const slides = document.querySelectorAll(".slide");
   let index = 0;
-  let interval;
 
-  function mostrarSlide(i) {
+  function mostrar(i) {
     slides.forEach(s => s.classList.remove("active"));
     slides[i].classList.add("active");
   }
 
-  function siguiente() {
+  setInterval(() => {
     index = (index + 1) % slides.length;
-    mostrarSlide(index);
-  }
+    mostrar(index);
+  }, 3000);
 
-  function anterior() {
-    index = (index - 1 + slides.length) % slides.length;
-    mostrarSlide(index);
-  }
+  // DÍA AUTOMÁTICO
+  const fechaInput = document.getElementById("fecha");
+  const diaInput = document.getElementById("dia");
 
-  function iniciarSlider() {
-    interval = setInterval(siguiente, 3000);
-  }
+  fechaInput.addEventListener("change", () => {
+    const fecha = new Date(fechaInput.value);
+    const dias = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+    diaInput.value = dias[fecha.getDay()];
+  });
 
-  function detenerSlider() {
-    clearInterval(interval);
-  }
-
-  if (slides.length > 0) {
-    iniciarSlider();
-
-    const slider = document.querySelector(".slider");
-
-    slider.addEventListener("mouseenter", detenerSlider);
-    slider.addEventListener("mouseleave", iniciarSlider);
-
-    document.querySelector(".next").addEventListener("click", siguiente);
-    document.querySelector(".prev").addEventListener("click", anterior);
-  }
-
-
-  // =========================
-  // TURNOS → WHATSAPP REAL
-  // =========================
+  // WHATSAPP
   const form = document.getElementById("turnoForm");
 
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+  form.addEventListener("submit", e => {
+    e.preventDefault();
 
-      const nombre = document.getElementById("nombre").value;
-      const fecha = document.getElementById("fecha").value;
-      const servicio = document.getElementById("servicio").value;
+    const nombre = document.getElementById("nombre").value;
+    const fecha = document.getElementById("fecha").value;
+    const dia = document.getElementById("dia").value;
+    const hora = document.getElementById("hora").value;
+    const servicio = document.getElementById("servicio").value;
 
-      const mensaje = `Hola, soy ${nombre}. Quiero reservar un turno para ${servicio} el día ${fecha}`;
+    const mensaje = `Hola! Soy ${nombre}.
+Quiero reservar turno:
 
-      const url = `https://wa.me/5491158662972?text=${encodeURIComponent(mensaje)}`;
+Servicio: ${servicio}
+Fecha: ${dia} ${fecha}
+Hora: ${hora}`;
 
-      window.open(url, "_blank");
+    const url = `https://wa.me/5491158662972?text=${encodeURIComponent(mensaje)}`;
 
-      form.reset();
-    });
-  }
+    window.open(url, "_blank");
+
+    form.reset();
+  });
 
 });
+

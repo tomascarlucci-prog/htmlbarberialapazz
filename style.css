@@ -10,17 +10,15 @@ body {
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* ================= HEADER ================= */
-
+/* HEADER */
 .header {
   text-align: center;
-  padding: 100px 20px 60px; /* MÁS ESPACIO ARRIBA */
+  padding: 100px 20px 60px;
 }
 
 .logo {
   width: 180px;
   margin-bottom: 15px;
-  filter: drop-shadow(0 0 10px red);
   transition: 0.3s;
 }
 
@@ -28,61 +26,37 @@ body {
   transform: scale(1.1);
 }
 
-.header h1 {
-  margin-bottom: 10px;
-}
-
-.header p {
-  opacity: 0.7;
-}
-
-/* 🔥 BOTÓN ARREGLADO */
 .header .btn {
-  display: inline-block;
   margin-top: 25px;
+  display: inline-block;
   background: white;
   color: black;
   padding: 12px 25px;
   border-radius: 30px;
   text-decoration: none;
-  transition: 0.3s;
 }
 
-.header .btn:hover {
-  transform: scale(1.1);
-}
-
-/* ================= NAV ================= */
-
+/* NAV */
 .nav {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   background: #111;
   padding: 15px;
-  position: sticky;
-  top: 0;
 }
 
 .nav a {
   color: white;
   text-decoration: none;
-  transition: 0.3s;
 }
 
-.nav a:hover {
-  color: red;
-}
-
-/* ================= SECCIONES ================= */
-
+/* SECCIONES */
 section {
   padding: 80px 20px;
   text-align: center;
 }
 
-/* ================= CARDS ================= */
-
+/* CARDS */
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -93,23 +67,15 @@ section {
 .card {
   background: #111;
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 10px;
   width: 200px;
-  transition: 0.3s;
 }
 
 .card span {
-  display: block;
-  margin-top: 10px;
   color: red;
 }
 
-.card:hover {
-  transform: translateY(-10px);
-}
-
-/* ================= SLIDER ================= */
-
+/* SLIDER */
 .slider {
   position: relative;
   max-width: 400px;
@@ -120,8 +86,7 @@ section {
   width: 100%;
   position: absolute;
   opacity: 0;
-  transition: opacity 0.8s ease;
-  border-radius: 15px;
+  transition: 0.8s;
 }
 
 .slide.active {
@@ -133,9 +98,9 @@ section {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  border: none;
+  background: black;
   color: white;
+  border: none;
   padding: 10px;
   cursor: pointer;
 }
@@ -143,8 +108,7 @@ section {
 .prev { left: 10px; }
 .next { right: 10px; }
 
-/* ================= FORM ================= */
-
+/* FORM */
 form {
   display: flex;
   flex-direction: column;
@@ -159,8 +123,20 @@ input, select {
   border: none;
 }
 
-/* ================= WHATSAPP ================= */
+input[readonly] {
+  background: #222;
+  color: #aaa;
+}
 
+/* BOTÓN */
+.btn {
+  background: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+/* REDES */
 .whatsapp {
   position: fixed;
   bottom: 20px;
@@ -168,16 +144,7 @@ input, select {
   background: #25D366;
   padding: 15px;
   border-radius: 50%;
-  font-size: 20px;
-  text-decoration: none;
-  transition: 0.3s;
 }
-
-.whatsapp:hover {
-  transform: scale(1.1);
-}
-
-/* ================= INSTAGRAM ================= */
 
 .instagram {
   position: fixed;
@@ -186,19 +153,16 @@ input, select {
   background: #E1306C;
   padding: 15px;
   border-radius: 50%;
-  font-size: 20px;
-  text-decoration: none;
 }
 
-/* ================= ANIMACIONES ================= */
-
+/* ANIMACIONES */
 .fade-in {
   opacity: 0;
-  transform: translateY(60px) scale(0.95);
-  transition: all 0.8s ease;
+  transform: translateY(50px);
+  transition: 1s;
 }
 
 .fade-in.visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }

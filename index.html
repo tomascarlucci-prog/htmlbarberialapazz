@@ -10,7 +10,7 @@
 <body>
 
 <header class="header">
-  <img src="Lapazlogohtml.jpg" class="logo">
+  <img src="lapazlogohtml.jpg" class="logo" alt="Logo Barbería La Paz">
   <h1>Barbería La Paz</h1>
   <p>Estilo, precisión y confianza</p>
   <a href="#turnos" class="btn">Reservar turno</a>
@@ -59,7 +59,13 @@
 
   <form id="turnoForm">
     <input type="text" id="nombre" placeholder="Nombre" required>
+
     <input type="date" id="fecha" required>
+
+    <input type="text" id="dia" placeholder="Día" readonly>
+
+    <!-- HORA ESCRIBIBLE -->
+    <input type="text" id="hora" placeholder="Ej: 15:30" required>
 
     <select id="servicio">
       <option>Corte</option>
@@ -70,18 +76,10 @@
     <button type="submit" class="btn">Reservar</button>
   </form>
 
-  <p id="mensaje"></p>
 </section>
 
-<!-- WhatsApp -->
-<a href="https://wa.me/5491158662972?text=Hola%20quisiera%20reservar%20un%20turno"
-   class="whatsapp"
-   target="_blank">💬</a>
-
-<!-- Instagram -->
-<a href="https://www.instagram.com/barberia_lapaz/"
-   class="instagram"
-   target="_blank">📸</a>
+<a href="https://wa.me/5491158662972" class="whatsapp" target="_blank">💬</a>
+<a href="https://www.instagram.com/barberia_lapaz/" class="instagram" target="_blank">📸</a>
 
 <script src="script.js"></script>
 
