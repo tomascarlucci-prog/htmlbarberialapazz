@@ -75,21 +75,71 @@ section {
   color: red;
 }
 
-/* SLIDER */
+/* =========================================
+   SLIDER DE PRESENTACIÓN (Transición Suave)
+   ========================================= */
+
+.presentacion-visual {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px; 
+}
+
+.slider-vintage {
+  position: relative;
+  width: 100%;
+  max-width: 380px; /* Caja vertical tipo celular */
+  height: 520px;    
+  margin: 0 auto;   
+  border-radius: 8px; 
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1); 
+}
+
+/* Apuntamos directamente a las imágenes dentro de la caja */
+.slider-vintage img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: center top; 
+  opacity: 0; 
+  animation: fadeAnimacion 10s infinite; /* La animación corre 100% por CSS */
+}
+
+/* Seleccionamos la segunda imagen para retrasarla */
+.slider-vintage img:nth-child(2) {
+  animation-delay: 5s; 
+}
+
+/* Los fotogramas que hacen el juego de aparecer y desaparecer */
+@keyframes fadeAnimacion {
+  0%, 15% { opacity: 0; }    /* Invisible */
+  25%, 45% { opacity: 1; }   /* Se ve perfecta */
+  55%, 100% { opacity: 0; }  /* Se desvanece */
+}
+
+/* =========================================
+   SLIDER DE LA GALERÍA (Abajo de todo)
+   ========================================= */
+
 .slider {
   position: relative;
   max-width: 400px;
   margin: auto;
 }
 
-.slide {
+.slider .slide {
   width: 100%;
   position: absolute;
   opacity: 0;
   transition: 0.8s;
 }
 
-.slide.active {
+.slider .slide.active {
   opacity: 1;
   position: relative;
 }
@@ -165,4 +215,34 @@ input[readonly] {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+/* =========================================
+   SECCIÓN MAPA Y UBICACIÓN
+   ========================================= */
+
+#ubicacion {
+  background: #0a0a0a; /* Un gris ultra oscuro para separar visualmente del fondo puro */
+}
+
+.direccion-texto {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #ccc;
+  letter-spacing: 0.5px;
+}
+
+.mapa-contenedor {
+  width: 100%;
+  max-width: 700px; /* Evita que el mapa se estire gigante en pantallas de PC */
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid #222; /* Borde sutil a tono con la estética */
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+}
+
+.mapa-contenedor iframe {
+  display: block;
+  /* Este filtro hace que el mapa de Google se vuelva oscuro/vintage y combine perfecto */
+  filter: grayscale(100%) invert(92%) contrast(83%); 
 }
